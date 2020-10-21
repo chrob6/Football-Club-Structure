@@ -9,7 +9,7 @@
 
 ## Diagram przypadków
 
-![diagram-przypadkow](DiagramPrzypadkow.jpg)
+![diagram-przypadkow](./DiagramPrzypadkow.jpg)
 
 ## Diagram klas
 
