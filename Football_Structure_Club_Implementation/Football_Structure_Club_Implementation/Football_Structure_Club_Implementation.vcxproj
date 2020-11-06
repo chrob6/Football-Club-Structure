@@ -115,7 +115,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Coach.cpp" />
+    <ClCompile Include="Football_player.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Timetable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Agenda_medical.h" />
+    <ClInclude Include="Agenda_practice.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="Candidate.h" />
+    <ClInclude Include="Coach.h" />
+    <ClInclude Include="Football_player.h" />
+    <ClInclude Include="Physiotherapist.h" />
+    <ClInclude Include="Timetable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
