@@ -34,8 +34,8 @@ VALUES (
         'Kawa',
         20,
         7,
-		'Polonia',
-		'Defensive midfield'
+	'Polonia',
+	'Defensive midfield'
        );
 
 
@@ -46,7 +46,7 @@ CREATE TABLE player (
   salary INT(3) NOT NULL,
   goals INT(3) NOT NULL,
   min_played INT(3) NOT NULL,
-  --position varchar(50) NOT NULL,
+  position varchar(50) NOT NULL,
   PRIMARY KEY (ID_user)
 );
 
@@ -57,16 +57,16 @@ VALUES (
         'Piotrkowski',
         2100,
         0,
-        0
- --       'Goalkeeper'
+        0,
+        'Goalkeeper'
        );
 
 CREATE TABLE timetable (
   ID_timetable INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
   w_day varchar(50) NOT NULL,
   lasting_minutes INT(3) NOT NULL,
-  hour DOUBLE(1,2) NOT NULL,
-  PRIMARY KEY (ID_user)
+  hour TIME(0) NOT NULL,
+  PRIMARY KEY (ID_timetable)
 );
 
 INSERT INTO timetable
@@ -74,7 +74,7 @@ VALUES (
         default,
         'Monday',
         90,
-        8.00
+        '08:00:00'
        );
 
 

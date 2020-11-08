@@ -3,13 +3,36 @@
 #include <math.h>
 #include <string>
 #include "Candidate.h"
-
+#include <mysql.h>
 
 using namespace std;
+
+int qstate;
 
 
 int main()
 {
+
+	MYSQL * conn;
+	MYSQL_ROW row;
+	MYSQL_RES *res;
+	conn = mysql_init(0);
+	conn = mysql_real_connect(conn, "localhost", "fc", "fc", "fc", 3306, NULL, 0);
+
+	if (conn) {
+		cout << "Success" << endl;
+		
+		string query = "SELECT * FROM player";
+		const char* q = query.c_str();
+		qstate = mysql_query(conn, q);
+		if (!qstate) {
+			res = mysql_store_result(conn);
+			while (row = mysql_fetch_row(res)) {
+				cout << row[0] << " " << row[1];
+			}
+		}
+	}
+
 	cout << " WYBIERZ CO CHCESZ ZROBIC: " << endl;
 	//cin.get();
 	int choice;
@@ -31,6 +54,8 @@ int main()
 		exit;
 		break;
 	}
+
+	system("Pause");
 
 
 	return 0;
