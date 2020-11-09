@@ -30,7 +30,7 @@
     <ClCompile Include="Timetable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="database.cpp">
+    <ClCompile Include="Candidate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

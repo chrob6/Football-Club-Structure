@@ -34,8 +34,8 @@ VALUES (
         'Kawa',
         20,
         7,
-	'Polonia',
-	'Defensive midfield'
+	    'Polonia',
+	    'Defensive midfield'
        );
 
 

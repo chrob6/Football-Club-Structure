@@ -4,8 +4,7 @@
 
 void Board::dismissal(Football_player player) {
 	// TODO - implement Board::dismissal
-	//throw "Not yet implemented";
-	
+	throw "Not yet implemented";
 }
 
 void Board::newplayer(Candidate candidate) {

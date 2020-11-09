@@ -124,10 +124,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Candidate.cpp" />
     <ClCompile Include="Coach.cpp" />
     <ClCompile Include="Football_player.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="database.cpp" />
     <ClCompile Include="Timetable.cpp" />
   </ItemGroup>
   <ItemGroup>
