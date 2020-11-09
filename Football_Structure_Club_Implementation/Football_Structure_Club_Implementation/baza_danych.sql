@@ -76,15 +76,15 @@ VALUES (
        );
 
 
-CREATE TABLE timetable_med (
-  ID_timetable_med INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE timetable_train (
+  ID_timetable_train INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
   w_day varchar(50) NOT NULL,
   lasting_minutes INT(3) NOT NULL,
   hour TIME(0) NOT NULL,
-  PRIMARY KEY (ID_timetable)
+  PRIMARY KEY (ID_timetable_train)
 );
 
-INSERT INTO timetable
+INSERT INTO timetable_train
 VALUES (
         default,
         'Monday',
@@ -97,7 +97,7 @@ CREATE TABLE timetable_phy (
   w_day varchar(50) NOT NULL,
   lasting_minutes INT(3) NOT NULL,
   hour TIME(0) NOT NULL,
-  PRIMARY KEY (ID_timetable)
+  PRIMARY KEY (ID_timetable_phy)
 );
 
 INSERT INTO timetable_phy
