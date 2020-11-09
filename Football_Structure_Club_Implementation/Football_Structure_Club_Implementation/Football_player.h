@@ -23,7 +23,8 @@ public:
 		minutes_played = 0;
 	}
 
-	Football_player(int _number, int _salary,int _age, string _name, string _surname, string _position) {
+	Football_player(int _number, int _salary, int _age, string _name, string _surname, string _position) {
+		number = _number;
 		age = _age;
 		name = _name;
 		surname = _surname;
@@ -33,7 +34,8 @@ public:
 		minutes_played = 0;
 	}
 
-	void progressCheck(int goals, int minutes);
+	//void progressCheck(int goals, int minutes);
+	void progressCheck();
 
 	int Getnumber();
 

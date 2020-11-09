@@ -6,6 +6,7 @@ void Timetable::update() {
 }
 
 void Timetable::show() {
-	// TODO - implement Timetable::show
-	throw "Not yet implemented";
+	cout << "Day: " << day << endl;
+	cout << "Time: " << lasting_minutes << "'" << endl;
+	cout << "Start Time: " << start_time << endl;
 }

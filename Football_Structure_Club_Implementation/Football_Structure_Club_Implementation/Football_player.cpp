@@ -1,8 +1,13 @@
 #include "Football_player.h"
 
-void Football_player::progressCheck(int goals, int minutes) {
+//void Football_player::progressCheck(int goals, int minutes) {
+//	cout << "Goals scored: " << goals << endl;
+//	cout << "Minutes played: " << minutes;
+//}
+
+void Football_player::progressCheck() {
 	cout << "Goals scored: " << goals << endl;
-	cout << "Minutes played: " << minutes;
+	cout << "Minutes played: " << minutes_played;
 }
 
 int Football_player::Getnumber() {

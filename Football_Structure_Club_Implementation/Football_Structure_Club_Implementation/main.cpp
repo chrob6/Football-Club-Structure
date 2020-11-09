@@ -29,45 +29,43 @@ int main()
 	Physiotherapist physiotherapist;
 	Candidate test(6, 1034, "John", "Johnson", "Lech", "Striker");
 	Football_player fptest(3, 314, test.age, test.name, test.surname, test.position);
+	string name, surname, position, club;
+	int age, years;
 
-	switch(choice)
-	{
-		case 1:
-		string name, surname,age,position,years,club;
-		cout<<"Podaj imie"<<endl;
-		cin>>name;
-		cout<<"Podaj nazwisko"<<endl;
-		cin>>surname;
-		cout<<"Podaj wiek"<<endl;
-		cin>>age;
-		cout<<"Podaj pozycje"<<endl;
-		cin>> position;
-		cout<<"Podaj ile lat grasz"<<endl;
-		cin>> years;
-		cout<<"Podaj byly klub"<<endl;
-		cin>>club;
-		Candidate can(age,years,name,surname,club,position);
-		
+
+	if (choice == 1) {
+		cout << "Podaj imie" << endl;
+		cin >> name;
+		cout << "Podaj nazwisko" << endl;
+		cin >> surname;
+		cout << "Podaj wiek" << endl;
+		cin >> age;
+		cout << "Podaj pozycje" << endl;
+		cin >> position;
+		cout << "Podaj ile lat grasz" << endl;
+		cin >> years;
+		cout << "Podaj byly klub" << endl;
+		cin >> club;
+		Candidate can(age, years, name, surname, club, position);
+	}
 		//podanie danych kandydata
-			
-		break;
-		case 2:
-		int id;
-		cout<<"Podaj id";
-		if(id<100)
-		login_player(id);
-		else if(id==100)
-		login_coach();
-		else if(id==111)
-		login_phy();
-		else if(id==1000)
-		login_board();
+	else if (choice == 2) {
+			int id;
+			cout << "Podaj id";
+			cin >> id;
+			if (id < 100) {}
+				//login_player(id);
+			else if (id == 100)
+				coach.login_coach();
+			else if (id == 111) {}
+				//login_phy();
+			else if (id == 1000) {}
+				//login_board();
+	}
+	else if (choice == 3) {
 		
-		break;
-		case 3:
 		cout<<"Bye"<<endl;
 		exit;
-		break;
 	}
 
 	//system("Pause");
