@@ -43,6 +43,7 @@ CREATE TABLE player (
   ID_user INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
   first_name varchar(50) NOT NULL,
   last_name varchar(50) NOT NULL,
+  age int(10) NOT NULL,
   salary INT(3) NOT NULL,
   goals INT(3) NOT NULL,
   min_played INT(3) NOT NULL,
@@ -55,14 +56,28 @@ VALUES (
         default,
         'Antoni',
         'Piotrkowski',
+        19,
         2100,
         0,
         0,
         'Goalkeeper'
        );
 
-CREATE TABLE timetable (
-  ID_timetable INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
+INSERT INTO player
+VALUES (
+        default,
+        'Tomasz',
+        'Palka',
+        20,
+        2100,
+        0,
+        0,
+        'Wing-back'
+       );
+
+
+CREATE TABLE timetable_med (
+  ID_timetable_med INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
   w_day varchar(50) NOT NULL,
   lasting_minutes INT(3) NOT NULL,
   hour TIME(0) NOT NULL,
@@ -75,6 +90,22 @@ VALUES (
         'Monday',
         90,
         '08:00:00'
+       );
+
+CREATE TABLE timetable_phy (
+  ID_timetable_phy INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  w_day varchar(50) NOT NULL,
+  lasting_minutes INT(3) NOT NULL,
+  hour TIME(0) NOT NULL,
+  PRIMARY KEY (ID_timetable)
+);
+
+INSERT INTO timetable_phy
+VALUES (
+        default,
+        'Monday',
+        90,
+        '09:00:00'
        );
 
 
