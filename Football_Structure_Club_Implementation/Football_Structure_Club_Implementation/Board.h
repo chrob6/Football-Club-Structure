@@ -6,17 +6,17 @@ using namespace std;
 class Board {
 
 private:
-	string position;
-	string name;
-	string surname;
+	int login = 1000;
+	//string name;
+	//string surname;
 
 public:
 
-	Board(string _position, string _name, string _surname) {
-		position = _position;
-		name = _name;
-		surname = _surname;
-	}
+	/*Board(string _login, string _name, string _surname) {
+		login = _login;
+		//name = _name;
+		//surname = _surname;
+	}*/
 	void dismissal(Football_player player);
 
 	void newplayer(Candidate candidate);

@@ -1,8 +1,10 @@
 #include <iostream>
 #include <fstream>
-#include <math.h>
 #include "Candidate.h"
 #include "Football_player.h"
+#include "Coach.h"
+#include "Board.h"
+#include "Physiotherapist.h"
 #include <mysql.h>
 
 using namespace std;
@@ -22,18 +24,45 @@ int main()
 	cout<<"- Wyjdz 3 "<<endl;
 	cin>>choice;
 
-
+	Coach coach;
+	Board board;
+	Physiotherapist physiotherapist;
 	Candidate test(6, 1034, "John", "Johnson", "Lech", "Striker");
 	Football_player fptest(3, 314, test.age, test.name, test.surname, test.position);
 
 	switch(choice)
 	{
 		case 1:
+		string name, surname,age,position,years,club;
+		cout<<"Podaj imie"<<endl;
+		cin>>name;
+		cout<<"Podaj nazwisko"<<endl;
+		cin>>surname;
+		cout<<"Podaj wiek"<<endl;
+		cin>>age;
+		cout<<"Podaj pozycje"<<endl;
+		cin>> position;
+		cout<<"Podaj ile lat grasz"<<endl;
+		cin>> years;
+		cout<<"Podaj byly klub"<<endl;
+		cin>>club;
+		Candidate can(age,years,name,surname,club,position);
+		
 		//podanie danych kandydata
 			
 		break;
 		case 2:
-		//logowanie
+		int id;
+		cout<<"Podaj id";
+		if(id<100)
+		login_player(id);
+		else if(id==100)
+		login_coach();
+		else if(id==111)
+		login_phy();
+		else if(id==1000)
+		login_board();
+		
 		break;
 		case 3:
 		cout<<"Bye"<<endl;
@@ -41,7 +70,7 @@ int main()
 		break;
 	}
 
-	system("Pause");
+	//system("Pause");
 
 
 	return 0;
@@ -60,7 +89,7 @@ void connect() {
 	if (conn) {
 		std::cout << "Success" << std::endl;
 
-		std::string query = "SELECT * FROM player";
+		string query = "SELECT * FROM player";
 		const char* q = query.c_str();
 		qstate = mysql_query(conn, q);
 		if (!qstate) {

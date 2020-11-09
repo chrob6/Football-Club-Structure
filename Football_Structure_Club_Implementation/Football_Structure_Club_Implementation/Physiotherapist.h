@@ -10,7 +10,7 @@ class Physiotherapist {
 private:
 	string name = "Ziutek";
 	string surname = "Makaroni";
-	int number = 111;
+	int login = 111;
 };
 
 #endif
