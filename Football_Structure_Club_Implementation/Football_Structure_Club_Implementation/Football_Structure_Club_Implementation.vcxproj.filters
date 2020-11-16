@@ -33,6 +33,9 @@
     <ClCompile Include="Candidate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Physiotherapist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agenda_medical.h">

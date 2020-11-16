@@ -8,87 +8,81 @@ void Coach::updateSalary(float bonus) {
 	salary += bonus;
 }
 
-void Coach::login_coach() {
-	int a = 1;
-
-	while (a == 1) {
+void Coach::login_coach(vector<Football_player> &base_players, vector<Timetable> &timetable_phy, vector<Timetable> &timetable_train) {
+	while (1) {
 		int choice1;
+		cout << endl;
 		cout << " WYBIERZ CO CHCESZ ZROBIC: " << endl;
-		//cin.get();
-
+		
 		cout << "- Zmiana statystyk zawodnika 1" << endl;
 		cout << "- Zobaczenie statystyk zawodnika 2 " << endl;
 		cout << "- Zobaczenie terminarza 3 " << endl;
 		cout << "- Zmiana terminarza 4 " << endl;
 		cout << "- Wyjdz 5 " << endl;
+		cout << "Wybierz (1-5): ";
 		cin >> choice1;
-		/*Football_player p1(2, 2040, 23, "John", "Fast", "Wing");
-		Football_player p2(3, 3020, 32, "Peter", "Slow", "Defender");
-		Football_player p3(4, 51200, 21, "Marcin", "The Best", "WHY");*/
 
 		if (choice1 == 1) {
-			int numer;
+			int number;
 
-			cout << "Podaj numer zawodnika";
-			cin >> numer;
+			cout << "Podaj numer zawodnika: ";
+			cin >> number;
+			for (int i = 0; i < base_players.size(); i++) {
+				if (base_players[i].Getnumber() == number) {
+					int m, g;
+					base_players[i].progressCheck();
+					cout << "Zmiana dla zawodnika o numerze: " << base_players[i].Getnumber() << endl;
+					cout << "Podaj minuty: ";
+					cin >> m;
+					base_players[i].SetMin(m);
+					cout << "Podaj gole: ";
+					cin >> g;
+					base_players[i].SetGoals(g);
+					base_players[i].progressCheck();
+				}
+			}
 			//pobranie zawodnika i wrzucenie do obiektu
 
 		}
 		//podanie danych kandydata
 		else if (choice1 == 2) {
-			int numer;
+			int number;
 
 			cout << "Podaj numer zawodnika: ";
-			cin >> numer;
-
-			int qstate;
-			MYSQL * conn;
-			MYSQL_ROW row;
-			MYSQL_RES *res;
-			conn = mysql_init(0);
-			conn = mysql_real_connect(conn, "localhost", "fc", "fc", "fc", 3306, NULL, 0);
-
-			if (conn) {
-
-				string query = " SELECT * FROM player WHERE ID_user= " + to_string(numer);
-				const char* q = query.c_str();
-				qstate = mysql_query(conn, q);
-				if (!qstate) {
-					res = mysql_store_result(conn);
-					row = mysql_fetch_row(res);
-
-					Football_player p(atoi(row[0]), atoi(row[3]), 34, row[1], row[2], row[6]);
+			cin >> number;
+			for (Football_player p : base_players) {
+				if (p.Getnumber() == number) {
+					cout << "Number zawodnika " << p.Getnumber() << " " << endl;
 					p.progressCheck();
 				}
 			}
+			
 		}
 		else if (choice1 == 3) {
-			string day;
-			cout << "Podaj Dzien tygodnia: ";
-			cin >> day;
-
-			int qstate;
-			MYSQL * conn;
-			MYSQL_ROW row;
-			MYSQL_RES *res;
-			conn = mysql_init(0);
-			conn = mysql_real_connect(conn, "localhost", "fc", "fc", "fc", 3306, NULL, 0);
-
-			if (conn) {
-
-				string query = " SELECT * FROM timetable_train WHERE w_day= '" + day + "'";
-				const char* q = query.c_str();
-				qstate = mysql_query(conn, q);
-				if (!qstate) {
-					res = mysql_store_result(conn);
-					row = mysql_fetch_row(res);
-
-					Timetable t(row[1], atoi(row[2]), row[3]);
-					t.show();
-				}
+			cout << "Jednostki treningowe: " << endl;
+			for (Timetable t : timetable_train) {
+				t.show();
 			}
 		}
 		else if (choice1 == 4) {
+			string d;
+			cout << "W ktorym dniu zmienic trening? (po ang. np Monday): ";
+			cin >> d;
+
+			for (int i = 0; i < timetable_train.size(); i++) {
+				if (timetable_train[i].GetDay() == d) {
+					string h;
+					int time;
+					cout << "Podaj godzine (w formie HH:MM:SS): ";
+					cin >> h;
+					cout << "Podaj czas trwania w min: ";
+					cin >> time;
+					timetable_train[i].update(time, h);
+				}
+			}
+			for (Timetable t : timetable_train) {
+				t.show();
+			}
 
 				}
 		else if (choice1 == 5) {

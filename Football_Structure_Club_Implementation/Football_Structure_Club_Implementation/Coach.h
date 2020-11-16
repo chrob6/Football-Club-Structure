@@ -2,6 +2,9 @@
 #define COACH_H
 
 #include <string>
+#include <vector>
+#include "Timetable.h"
+#include "Football_player.h"
 
 using namespace std;
 
@@ -15,7 +18,7 @@ private:
 
 public:
 	void updateSalary(float bonus);
-	void login_coach();
+	void login_coach(vector<Football_player> &base_players, vector<Timetable> &timetable_phy, vector<Timetable> &timetable_train);
 };
 
 

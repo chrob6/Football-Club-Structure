@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include "Candidate.h"
+#include <vector>
+#include "Timetable.h"
 
 using namespace std;
 
@@ -39,11 +41,17 @@ public:
 
 	int Getnumber();
 
+	void SetGoals(int _goals);
+
+	void SetMin(int _min);
+
 	int GetStats();
 
 	void InsertStats(int goals, int minutes);
 
 	void updateSalary(float bonus);
+
+	void login_player(vector<Timetable> &base_timetable_phy, vector<Timetable> &base_timetable_train);
 };
 
 #endif

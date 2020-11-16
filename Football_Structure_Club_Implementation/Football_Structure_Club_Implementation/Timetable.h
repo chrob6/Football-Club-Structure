@@ -3,12 +3,11 @@
 #include <string>
 #include <iostream>
 
-
 using namespace std;
 
 class Timetable {
 
-private:
+private :
 	string day;
 	int lasting_minutes;
 	string start_time;
@@ -20,7 +19,12 @@ public:
 		start_time = _start_time;
 	}
 
-	void update();
+	string GetDay();
+
+	string GetTime();
+
+	void update(int min, string h);
+	void update(int min, string h, string _day);
 
 	void show();
 

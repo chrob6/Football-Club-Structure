@@ -92,6 +92,31 @@ VALUES (
         '08:00:00'
        );
 
+INSERT INTO timetable_train
+VALUES (
+        default,
+        'Tuesday',
+        90,
+        '10:00:00'
+       );
+
+INSERT INTO timetable_train
+VALUES (
+        default,
+        'Friday',
+        90,
+        '08:00:00'
+       );
+
+INSERT INTO timetable_train
+VALUES (
+        default,
+        'Saturday',
+        180,
+        '13:00:00'
+       );
+
+
 CREATE TABLE timetable_phy (
   ID_timetable_phy INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
   w_day varchar(50) NOT NULL,
@@ -108,6 +133,13 @@ VALUES (
         '09:00:00'
        );
 
+INSERT INTO timetable_phy
+VALUES (
+        default,
+        'Tuesday',
+        90,
+        '12:00:00'
+       );
 
 
 DROP USER 'fc'@'localhost';
@@ -115,4 +147,3 @@ FLUSH PRIVILEGES;
 CREATE USER 'fc'@'localhost' IDENTIFIED BY 'fc';
 GRANT ALL PRIVILEGES ON fc.* TO fc@localhost;
 FLUSH PRIVILEGES;
-
