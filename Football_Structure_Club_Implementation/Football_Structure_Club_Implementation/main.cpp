@@ -20,11 +20,11 @@ vector<Timetable> base_timetable_phy;
 vector<Timetable> base_timetable_train;
 
 
-
 int main()
 {
 	connect();
 
+	cout << "TEST: " << endl;
 	for (Football_player p : base_players) {
 		cout << p.position << endl;
 	}
@@ -32,7 +32,7 @@ int main()
 	for (Candidate c : base_candidates) {
 		cout << c.club << endl;
 	}
-
+	cout << "TEST" << endl << endl;
 	//for (Timetable t : base_timetable_phy) {
 	//	cout << t.day << endl;
 	//}
@@ -82,10 +82,12 @@ int main()
 			int id;
 			cout << "Podaj id: ";
 			cin >> id;
-			if (id < 100) 
-				base_players[id].login_player(base_timetable_phy, base_timetable_train);	
-			else if (id == 100)
+			if (id == 100) {
 				coach.login_coach(base_players, base_timetable_phy, base_timetable_train);
+			}
+			else if (id < 100) {
+				base_players[id-1].login_player(base_timetable_phy, base_timetable_train);
+			}
 			else if (id == 111) 
 				physiotherapist.login_phy(base_timetable_phy);
 			else if (id == 1000) 
@@ -93,6 +95,7 @@ int main()
 		}
 		else if (choice == 3) {
 
+			cout << "TEST: " << endl;
 			for (Football_player p : base_players) {
 				cout << p.position << endl;
 			}
@@ -100,6 +103,8 @@ int main()
 			for (Candidate c : base_candidates) {
 				cout << c.club << endl;
 			}
+			cout << "TEST" << endl << endl;
+
 
 			cout << "B ";
 			Sleep(500);

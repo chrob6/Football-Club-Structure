@@ -22,10 +22,6 @@ void Football_player::SetMin(int _min) {
 	minutes_played += _min;
 }
 
-int Football_player::GetStats() {
-	// TODO - implement Football_player::GetStats
-	throw "Not yet implemented";
-}
 
 void Football_player::InsertStats(int _goals, int _minutes) {
 	goals += _goals;

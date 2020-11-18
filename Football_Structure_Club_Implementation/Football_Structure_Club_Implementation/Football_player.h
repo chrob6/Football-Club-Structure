@@ -45,8 +45,6 @@ public:
 
 	void SetMin(int _min);
 
-	int GetStats();
-
 	void InsertStats(int goals, int minutes);
 
 	void updateSalary(float bonus);
