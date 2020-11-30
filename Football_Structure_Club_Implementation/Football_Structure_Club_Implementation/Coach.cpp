@@ -75,9 +75,9 @@ void Coach::login_coach(vector<Football_player> &base_players, vector<Timetable>
 					int time;
 					cout << "Podaj godzine (w formie HH:MM:SS): ";
 					cin >> h;
-					cout << "Podaj czas trwania w min: ";
-					cin >> time;
-					timetable_train[i].update(time, h);
+					//cout << "Podaj czas trwania w min: ";
+					//cin >> time;
+					timetable_train[i].update(h);
 				}
 			}
 			for (Timetable t : timetable_train) {

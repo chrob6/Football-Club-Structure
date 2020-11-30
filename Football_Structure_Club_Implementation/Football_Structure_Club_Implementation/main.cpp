@@ -9,6 +9,7 @@
 #include <mysql.h>
 #include <vector>
 #include <Windows.h>
+#include "TimetableFactory.cpp"
 
 using namespace std;
 
@@ -175,8 +176,10 @@ void connect() {
 
 			while (row = mysql_fetch_row(res)) {
 
-				Timetable t(row[1], atoi(row[2]), row[3]);
-				base_timetable_phy.push_back(t);
+				TimetableFactory* factory = new PhyTimetableFactory;
+				Timetable *t = factory->createTimetable(row[1], row[3]);
+				
+				base_timetable_phy.push_back(*(t));
 			}
 		}
 
@@ -188,8 +191,14 @@ void connect() {
 
 			while (row = mysql_fetch_row(res)) {
 
-				Timetable t(row[1], atoi(row[2]), row[3]);
-				base_timetable_train.push_back(t);
+
+				TimetableFactory* factory = new TrainTimetableFactory;
+				Timetable *t = factory->createTimetable(row[1], row[3]);
+
+				base_timetable_train.push_back(*(t));
+
+			/*	Timetable t(row[1], atoi(row[2]), row[3]);
+				base_timetable_train.push_back(t);*/
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 #include "Football_player.h"
-
+#include "TimetableFactory.cpp"
 //void Football_player::progressCheck(int goals, int minutes) {
 //	cout << "Goals scored: " << goals << endl;
 //	cout << "Minutes played: " << minutes;
@@ -74,11 +74,15 @@ void Football_player::login_player(vector<Timetable> &timetable_phy, vector<Time
 			cin >> d;
 			cout << "Podaj godzine (w formie HH:MM:SS): ";
 			cin >> h;
-			cout << "Podaj czas trwania w min: ";
-			cin >> time;
+			//cout << "Podaj czas trwania w min: ";
+			//cin >> time;
 
-			Timetable appointment(d, time, h);
-			timetable_phy.push_back(appointment);
+			TimetableFactory* factory = new PhyTimetableFactory;
+			Timetable *t = factory->createTimetable(d,h);
+			timetable_phy.push_back(*(t));
+
+			//Timetable appointment(d, time, h);
+			//timetable_phy.push_back(appointment);
 		}
 		else if (choice1 == 4) {
 			break;

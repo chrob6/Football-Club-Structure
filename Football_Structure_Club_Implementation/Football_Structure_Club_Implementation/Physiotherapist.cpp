@@ -30,9 +30,9 @@ void Physiotherapist::login_phy(vector<Timetable> &timetable_phy) {
 					cin >> d;
 					cout << "Podaj godzine do zmiany (w formie HH:MM:SS): ";
 					cin >> h;
-					cout << "Podaj czas trwania w min: ";
-					cin >> time;
-					timetable_phy[i].update(time, h, d);
+					//cout << "Podaj czas trwania w min: ";
+					//cin >> time;
+					timetable_phy[i].update(h, d);
 				}
 			}
 

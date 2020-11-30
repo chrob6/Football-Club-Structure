@@ -130,6 +130,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Physiotherapist.cpp" />
     <ClCompile Include="Timetable.cpp" />
+    <ClCompile Include="TimetableFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agenda_medical.h" />
