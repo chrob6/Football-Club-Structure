@@ -130,6 +130,7 @@
     <ClCompile Include="Coach.cpp" />
     <ClCompile Include="Football_player.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Physiotherapist.cpp" />
     <ClCompile Include="Singleton_Facade.cpp" />
     <ClCompile Include="Timetable.cpp" />

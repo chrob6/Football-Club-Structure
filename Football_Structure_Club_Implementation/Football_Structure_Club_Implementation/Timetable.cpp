@@ -1,9 +1,10 @@
 #include "Timetable.h"
 
+
 void Timetable::update( string h) {
 	//lasting_minutes = min;
 	start_time = h;
-
+	this->notifyObservators();
 }
 
 void Timetable::show() {
@@ -24,4 +25,20 @@ void Timetable::update(string h, string _day) {
 	//lasting_minutes = min;
 	start_time = h;
 	day = _day;
+	this->notifyObservators();
+}
+
+void Timetable::notifyObservators() {
+	list<Observer*>::iterator iter;
+	for (iter = observers.begin(); iter != observers.end(); iter++)
+		(*iter)->update();
+
+}
+
+void Timetable::addObservator(Observer &object) {
+	observers.push_back(&object);
+}
+
+void Timetable::removeObservator(Observer &object) {
+	observers.remove(&object);
 }

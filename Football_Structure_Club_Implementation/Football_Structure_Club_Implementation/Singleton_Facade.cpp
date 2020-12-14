@@ -29,6 +29,7 @@ public:
 
 	void menu();
 	void connect();
+	void initialize_timetable_observer();
 };
 
 Singleton_Facade& Singleton_Facade::instance() {
@@ -38,6 +39,7 @@ Singleton_Facade& Singleton_Facade::instance() {
 
 void Singleton_Facade::menu() {
 	connect();
+	initialize_timetable_observer();
 
 	cout << "TEST: " << endl;
 	for (Football_player p : base_players) {
@@ -106,7 +108,7 @@ void Singleton_Facade::menu() {
 			else if (id == 111)
 				physiotherapist.login_phy(base_timetable_phy);
 			else if (id == 1000)
-				board.login_board(base_candidates, base_players, coach);
+				board.login_board(base_candidates, base_players, coach, base_timetable_train);
 		}
 		else if (choice == 3) {
 
@@ -206,5 +208,17 @@ void Singleton_Facade::connect() {
 					base_timetable_train.push_back(t);*/
 			}
 		}
+	}
+}
+
+void Singleton_Facade::initialize_timetable_observer() {
+	int i = 0;
+	for (Timetable t : base_timetable_train) {
+		int j = 0;
+		for (Football_player f : base_players) {
+			base_timetable_train[i].addObservator((base_players[j]));
+			j++;
+		}
+		i++;
 	}
 }

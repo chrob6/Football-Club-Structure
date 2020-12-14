@@ -17,7 +17,7 @@ void Board::bonus() {
 	throw "Not yet implemented";
 }
 
-void Board::login_board(vector<Candidate> &base_candidates, vector<Football_player> &base_players, Coach &coach) {
+void Board::login_board(vector<Candidate> &base_candidates, vector<Football_player> &base_players, Coach &coach, vector<Timetable> &base_timetable_train) {
 	while (1) {
 		
 		int choice1;
@@ -49,6 +49,16 @@ void Board::login_board(vector<Candidate> &base_candidates, vector<Football_play
 					cin >> sal;
 					Football_player p(number, sal, base_candidates[i].age, base_candidates[i].name, base_candidates[i].surname, base_candidates[i].position);
 					base_players.push_back(p);
+
+					int i = 0;
+					for (Timetable t : base_timetable_train) {			
+						base_timetable_train[i].addObservator((p));	
+						i++;
+					}
+					for (Observer* o : base_timetable_train[0].Getobservers()) {
+						cout << o << endl;
+					}
+
 				}
 				else if (decision == 2) {
 					base_candidates.erase(base_candidates.begin() + i);

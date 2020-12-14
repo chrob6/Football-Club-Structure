@@ -34,6 +34,15 @@ void Football_player::updateSalary(float bonus) {
 
 void Football_player::login_player(vector<Timetable> &timetable_phy, vector<Timetable> &timetable_train) {
 	while (1) {
+
+		if (notification_avaible == true) {
+			cout << "Zmiana terminarza treningow!!!: " << endl;
+			for (Timetable t : timetable_train) {
+				t.show();
+			}
+			update();
+		}
+
 		int choice1;
 		cout << endl;
 		cout << " WYBIERZ CO CHCESZ ZROBIC: " << endl;
@@ -88,4 +97,11 @@ void Football_player::login_player(vector<Timetable> &timetable_phy, vector<Time
 			break;
 		}
 	}
+}
+
+void Football_player::update() {
+	if (notification_avaible)
+		notification_avaible = false;
+	else
+		notification_avaible = true;
 }

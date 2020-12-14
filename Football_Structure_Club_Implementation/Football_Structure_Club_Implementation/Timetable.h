@@ -2,6 +2,8 @@
 #define TIMETABLE_H
 #include <string>
 #include <iostream>
+#include "Observer.cpp"
+#include <list>
 
 using namespace std;
 
@@ -26,14 +28,15 @@ public:
 };
 
 
-class Timetable {
+class Timetable : public Subject {
 
 private :
 	string name;
 	string day;
 	string start_time;
 	LastingTime* lasting_minutes;
-	
+	list<Observer*> observers;
+	//vector<Observer*> observers;
 
 public:
 	Timetable(string n) :name(n) {
@@ -57,12 +60,20 @@ public:
 
 	string GetTime();
 
+	list<Observer*> Getobservers() {
+		return observers;
+	}
+
 	void update(string h);
 	void update(string h, string _day);
 
 	void show();
 
 	LastingTime* GetLastingMinutes() { return lasting_minutes; }
+
+	void addObservator(Observer &object);
+	void removeObservator(Observer &object);
+	void notifyObservators();
 
 };
 

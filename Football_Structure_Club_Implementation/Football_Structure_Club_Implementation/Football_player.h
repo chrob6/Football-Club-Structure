@@ -7,15 +7,17 @@
 #include <vector>
 #include "Timetable.h"
 
+
 using namespace std;
 
-class Football_player : public Candidate {
+class Football_player : public Candidate, public Observer {
 
 private:
 	int number;
 	float salary;
 	int goals;
 	int minutes_played;
+	bool notification_avaible;
 
 public:
 
@@ -23,6 +25,7 @@ public:
 		salary = _salary;
 		goals = 0;
 		minutes_played = 0;
+		notification_avaible = false;
 	}
 
 	Football_player(int _number, int _salary, int _age, string _name, string _surname, string _position) {
@@ -34,6 +37,7 @@ public:
 		salary = _salary;
 		goals = 0;
 		minutes_played = 0;
+		notification_avaible = false;
 	}
 
 	//void progressCheck(int goals, int minutes);
@@ -50,6 +54,10 @@ public:
 	void updateSalary(float bonus);
 
 	void login_player(vector<Timetable> &base_timetable_phy, vector<Timetable> &base_timetable_train);
+
+	void update();
+
+	
 };
 
 #endif

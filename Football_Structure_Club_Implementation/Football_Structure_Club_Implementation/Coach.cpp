@@ -10,6 +10,11 @@ void Coach::updateSalary(float bonus) {
 
 void Coach::login_coach(vector<Football_player> &base_players, vector<Timetable> &timetable_phy, vector<Timetable> &timetable_train) {
 	while (1) {
+
+		for (Observer* o :timetable_train[0].Getobservers()) {
+			cout << o << endl;
+		}
+
 		int choice1;
 		cout << endl;
 		cout << " WYBIERZ CO CHCESZ ZROBIC: " << endl;
